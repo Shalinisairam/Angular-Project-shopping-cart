@@ -1,0 +1,44 @@
+<form #loginForm="ngForm" (ngSubmit)="onlogin()" class="login-form" novalidate>
+  <div class="login-box">
+    
+    <h2 class="signin">Sign In</h2>
+
+ 
+    <div class="form-group"> 
+      <label for="name">Name</label>
+      <input type="text" id="name"  name="name" required minlength="3" placeholder="Enter your name">
+      <div  class="error-message">
+       
+      </div>
+    </div>
+   
+   
+    <div class="form-group"> 
+      <label for="email">Email</label>
+      <input type="email" id="email" [(ngModel)]="email" name="email" #emailCtrl="ngModel" required email placeholder="Enter your email">
+      <div *ngIf="emailCtrl.invalid && (emailCtrl.dirty || emailCtrl.touched)" class="error-message">
+        <small *ngIf="emailCtrl.errors?.['required']">Email is required.</small>
+        <small *ngIf="emailCtrl.errors?.['email']">Please enter a valid email address.</small>
+      </div>
+    </div>
+
+   
+    <div class="form-group">
+      <label for="password">Password</label>
+      <input type="password" id="password" [(ngModel)]="password" name="password" #passwordCtrl="ngModel" required minlength="6" placeholder="Enter your password">
+      <div *ngIf="passwordCtrl.invalid && (passwordCtrl.dirty || passwordCtrl.touched)" class="error-message">
+        <small *ngIf="passwordCtrl.errors?.['required']">Password is required.</small>
+        <small *ngIf="passwordCtrl.errors?.['minlength']">Password must be at least 6 characters long.</small>
+      </div>
+    </div>
+
+    <div style="font-size: 12px; font-weight: 100; margin-top: 13px;">
+      <label for="password">Forgot password?</label>
+      
+    </div>
+
+   
+    <button type="submit" class="login-button" [disabled]="loginForm.invalid">LOGIN</button>
+    
+  </div>
+</form>

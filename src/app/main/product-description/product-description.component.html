@@ -1,0 +1,55 @@
+<div class="row">
+
+
+
+    <div class="col" *ngFor="let item of show_descripiton">
+
+        <div>
+            <img src="{{item.image}}" class="img-fluid">
+        </div>
+
+    </div>
+
+
+    <div class="col pt-5" style="width: 10rem; padding: 2rem;">
+
+        <div *ngFor="let item of show_descripiton">
+
+            <div class="card">
+
+
+                <div class="card-body">
+
+                    <h2>${{ item.price }}</h2>
+
+                    <h5><b>{{ item.name }}</b></h5><br>
+
+                
+                    <h5><b>Description</b></h5>
+
+                    <p class="lead">{{ item.description }}</p>
+
+                 <h5 style="margin-top: 10px; padding: 15px; margin-left:-13px;" ><b>Available offers</b></h5>
+                   <ul>
+                    <li>Bank Offer5% Cashback on Flipkart Axis Bank CardT&C</li>
+                    <li>Special coupon for 3000 above perchase</li>
+                    <li>No cost EMI available</li>
+                    <li>Buy for 2000 get ₹500 off your Next BuyT&C</li>
+                    <li> Special Price: Get extra ₹500 off</li>
+                   </ul>
+
+                </div>
+
+
+                <div class="card-footer">
+                    <button class="btn btn-primary">Add to Cart</button>
+                </div>
+
+            </div>
+
+        </div>
+
+    </div>
+
+
+</div>

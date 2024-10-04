@@ -1,0 +1,98 @@
+<div class="container-fluid" *ngIf="cart_data.length !== 0">
+    <div class="row">
+        <aside class="col-lg-9">
+            <div class="card">
+                <div class="table-responsive">
+                    <table class="table table-borderless table-shopping-cart">
+                        <thead class="text-muted">
+                            <tr class="small text-uppercase">
+                                <th scope="col">Product</th>
+                                <th scope="col" width="120">Quantity</th>
+                                <th scope="col" width="120">Price</th>
+                                <th scope="col" class="text-right d-none d-md-block" width="200"></th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <tr *ngFor="let item of cart_data ; let i = index ">
+                                <td>
+                                    <figure class="itemside align-items-center">
+                                        <div class="aside"><img src="{{item.image}}" class="img-sm">
+                                        </div>
+                                        <figcaption class="info"> <a href="#" class="title text-dark"
+                                                data-abc="true">{{item.name}}</a>
+                                            <p class="text-muted small">SIZE: L <br> Brand: Tommy</p>
+                                        </figcaption>
+                                    </figure>
+                                </td>
+                                <td>
+
+                                    <div class="input-group">
+                                        <div class="input-group-prepend">
+                                            <button class="btn btn-outline-secondary" type="button"
+                                                (click)="decreaseQuantity(i)">-</button>
+                                        </div>
+                                        <input type="text" class="form-control" [(ngModel)]="cart_data[i].quantity">
+                                        <div class="input-group-append">
+                                            <button class="btn btn-outline-secondary" type="button"
+                                                (click)="increaseQuantity(i)">+</button>
+                                        </div>
+                                    </div>
+
+
+                                </td>
+                                <td>
+                                    <div class="price-wrap">
+                                        <var class="price">{{ calculateSingleProductPrice(i) }}</var>
+
+                                    </div>
+                                </td>
+                                <td class="text-right d-none d-md-block"> 
+                                
+
+                                    <a (click)="removeItems(item)" class="btn btn-light" data-abc="true" style="margin-right: 170px;"> Remove</a> </td>
+                            </tr>
+                        </tbody>
+                    </table>
+                </div>
+            </div>
+        </aside>
+        <aside class="col-lg-3">
+          
+            <div class="card">
+                <div class="card-body">
+                  
+                    <dl class="dlist-align">
+                        <dt>Total:</dt>
+                        <dd class="text-right text-dark b ml-3"><strong>${{ totalPrice }}</strong></dd>
+                    </dl>
+                    <hr> 
+
+                    <a routerLink="/product-list" class="btn btn-out btn-black btn-square btn-main mt-2"  data-abc="true">  Continue Shopping</a>
+
+                     
+                </div>
+            </div>
+        </aside>
+    </div>
+</div>
+
+
+<div *ngIf="cart_data.length === 0" class="text-center" style="display: flex; justify-content: center; padding-top: 10rem;"> 
+
+
+    <div class="card" style="width: 37rem;">
+
+
+        <div class="card-body">
+            <h1 class="text-center pt-5">No items Added</h1>
+        </div>
+    
+        <div class="card-footer"> 
+            <button class="btn btn-warning" routerLink="/login">Add Product</button>
+        </div>
+        
+
+    </div>
+
+
+</div>

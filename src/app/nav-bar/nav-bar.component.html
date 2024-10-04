@@ -1,0 +1,42 @@
+  <nav *ngIf="isVisible" class="navbar">
+      <div class="navbar-logo">
+        <a routerLink="/" class="navbar-brand">Shopping Cart</a>
+      </div>
+      <ul class="navbar-links">
+        <li><a routerLink="/" routerLinkActive="active">Home</a></li>
+        <!-- <li><a routerLink="/add-product" routerLinkActive="active">Add Product</a></li> -->
+        <li><a routerLink="/product-list" routerLinkActive="active">Products</a></li>
+        <li><a routerLink="/contact" routerLinkActive="active">Contact</a></li>
+        <li><a routerLink="/contact" routerLinkActive="active">Returs&Orders</a></li>
+      </ul>
+
+      <div class="search-container">
+          <input type="text" placeholder="Search..."  />
+          <button >Search</button>
+        </div>
+      
+      
+    
+        <div class="order-lg-last col-lg-5 col-sm-8 col-8">
+          <div class="float-end" style="margin-top: 10px;" margin>
+            <a data-bs-toggle="offcanvas" href="#offcanvas_cart" class="btn btn-light"> 
+                <button type="button"  routerLink="/mycart">
+                  <i class="fa fa-shopping-cart"></i>  MyCart
+                  <span class="badge bg-secondary">{{cartCount}}</span>
+                </button>
+            </a>
+
+      
+
+              </div>
+        </div> 
+
+        <div class="logout-container">
+          <button class="logout-btn" (click)="logout()">Logout</button>
+          
+        </div>
+    </nav>
+    
+    
+    <router-outlet></router-outlet>
+    

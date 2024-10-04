@@ -1,0 +1,59 @@
+<div class="row">
+
+    <div class="col-lg-6 col-md-12">
+
+        <div class="add-product-container">
+
+            <h3 class="text-center">Add Products</h3>
+
+            <div class="card add-product-card">
+                <app-add-product (dataStorageUpdated)="recivedData($event)"></app-add-product>
+            </div>
+
+        </div>
+
+    </div>
+
+    <div class="col-lg-6 col-md-12">
+
+        <div class="product-list-container">
+
+            <h3 class="text-center">List of Products</h3>
+
+            <div class="row">
+                <div class="col-md-6 mb-4" *ngFor="let item of data_storage">
+                    <div class="cart">
+
+                        <figure class="card card-product-grid">
+                            <div class="img-wrap">
+                                <img src="{{item.image}}" class="img-fluid" alt="No image">
+                            </div>
+
+                            <div class="card-body">
+                                <figcaption class="info-wrap border-top">
+                                    <div class="price-wrap">
+                                        <strong class="price">${{item.price}}</strong>
+                                        <h5 class="mb-1">{{item.name}}</h5>
+                                    </div>
+                                    <p class="title mb-2">{{item.description}}</p>
+                                    <a style="cursor: pointer;" (click)="showDescription(item)">More...</a>
+                                </figcaption>
+                            </div>
+
+                            <div class="card-footer text-muted">
+                                <button *ngIf="!item.added" class="btn btn-primary" (click)="addProduct(item)">Add to cart</button>
+                                <button *ngIf="item.added" class="btn btn-success" disabled>Added</button>
+                                <button class="btn btn-warning" (click)="editProduct(item)">Edit</button>
+                                <a class="btn btn-danger" (click)="deleteProduct(item)">Delete</a>
+                            </div>
+
+                        </figure>
+
+                    </div>
+                </div>
+            </div>
+
+        </div>
+    </div>
+
+</div>

@@ -1,0 +1,36 @@
+ <div class="register-form">
+
+    <form (ngSubmit)="onSubmit()">
+ 
+        <div class="form-group">
+            <input type="number" [(ngModel)]="addProductData.id" class="form-control" placeholder="Id" name="id">
+        </div>
+ 
+        <div class="form-group">
+            <input type="text" class="form-control" [(ngModel)]="addProductData.name" placeholder="Name" name="name">
+        </div>
+ 
+        <div class="form-group">
+            <input type="number" class="form-control" [(ngModel)]="addProductData.price" placeholder="Price" name="price">
+        </div>
+ 
+        <div class="form-group">
+            <div class="form-floating">
+                <textarea class="form-control" name="description" [(ngModel)]="addProductData.description" placeholder="Leave a comment here" id="floatingTextarea2" style="height: 100px"></textarea>
+                <label for="floatingTextarea2">Description</label>
+            </div>
+        </div>
+
+        <div class="form-group">
+            <input class="form-control" name="image" (change)="onFileChange($event)" type="file" id="formFile">
+        </div>
+ 
+        <div class="form-group">
+            <button type="submit" class="btn add-product-btn">Add Product</button>
+        </div>
+     
+    </form>
+ 
+</div> 
+
+  
